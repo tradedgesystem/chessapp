@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure JS Chess</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <h1>Pure JS Chess</h1>
+      <p>Play against the built-in engine. Everything runs offline in your browser.</p>
+    </header>
+    <main>
+      <section class="board-section">
+        <div class="board-wrapper">
+          <div id="board" aria-label="Chessboard"></div>
+          <svg id="overlay" class="overlay" viewBox="0 0 8 8"></svg>
+        </div>
+      </section>
+      <section class="side-panel">
+        <div class="controls">
+          <div class="control-group">
+            <label for="depth">AI Depth</label>
+            <input type="range" id="depth" min="1" max="4" value="3">
+            <span id="depth-value">3</span>
+          </div>
+          <div class="control-group">
+            <label for="side">Your Color</label>
+            <select id="side">
+              <option value="white" selected>White</option>
+              <option value="black">Black</option>
+            </select>
+          </div>
+          <div class="control-group buttons">
+            <button id="new-game">New Game</button>
+            <button id="undo">Undo</button>
+          </div>
+        </div>
+          <div class="status">
+            <div class="status-item"><span>Turn:</span> <strong id="turn">White</strong></div>
+            <div class="status-item"><span>Evaluation:</span> <strong id="eval">0.00</strong></div>
+            <div class="status-item"><span>Engine Depth:</span> <strong id="engine-depth">0</strong></div>
+            <div class="status-item"><span>Nodes:</span> <strong id="nodes">0</strong></div>
+            <div class="status-item"><span>White Clock:</span> <strong id="white-clock">05:00</strong></div>
+            <div class="status-item"><span>Black Clock:</span> <strong id="black-clock">05:00</strong></div>
+            <div class="status-item" id="game-state">Ready.</div>
+          </div>
+          <div class="move-log">
+            <h3>Moves</h3>
+            <ol id="moves"></ol>
+          </div>
+          <div class="recommendation">
+            <h3>Recommended Move</h3>
+            <p id="recommend-text">Ready.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  <script src="engine.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
